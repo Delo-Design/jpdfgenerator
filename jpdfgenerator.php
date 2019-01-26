@@ -94,9 +94,13 @@ class plgSystemJpdfgenerator extends CMSPlugin
 
         if($action === 'stream')
         {
-
+            $pdf->stream();
         }
-        $pdf->stream();
+
+        if($action === 'download')
+        {
+            $pdf->download();
+        }
 
         $app->close();
 
