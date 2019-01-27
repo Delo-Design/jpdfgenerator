@@ -10,7 +10,6 @@
 	<version>1.0</version>
 	<description>PLG_JPDFGENERATOR_XML_DESCRIPTION</description>
 
-	<!-- Language files -->
 	<languages folder="language">
 		<language tag="en-GB">en-GB/en-GB.plg_system_jpdfgenerator.ini</language>
 		<language tag="en-GB">en-GB/en-GB.plg_system_jpdfgenerator.sys.ini</language>
@@ -18,7 +17,12 @@
 		<language tag="ru-RU">ru-RU/ru-RU.plg_system_jpdfgenerator.sys.ini</language>
 	</languages>
 
-	<!-- Plugin files -->
+	<updateservers>
+		<server type="extension" priority="1" name="Jpdf Generator">
+			https://hika.su/update/free/plg_jpdfgenerator.xml
+		</server>
+	</updateservers>
+
 	<files>
 		<filename plugin="jpdfgenerator">jpdfgenerator.php</filename>
 		<folder>language</folder>
