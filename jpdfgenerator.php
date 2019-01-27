@@ -90,7 +90,7 @@ class plgSystemJpdfgenerator extends CMSPlugin
         }
 
         JLoader::register('JMpdf', JPATH_LIBRARIES . '/mpdf/jmpdf.php');
-        $pdf = JMpdf::getPdf($html);
+        $pdf = new JMpdf($html);
 
         if($action === 'stream')
         {
