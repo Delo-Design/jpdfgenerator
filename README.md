@@ -22,7 +22,7 @@ https://github.com/Delo-Design/jmpdf
 ## Адрес для обращений
 /index.php?option=com_ajax&plugin=jpdfgenerator&group=system&format=raw
 
-Где можно указать два дополнительных параметра:
+Вы можете также добавить два дополнительных параметра:
 - template - это какой шаблон использовать, по умолчанию "default"
 - action - это действие (download, stream), где download - запустит скачку pdf, а stream - вывод на экран. По умолчанию используется "stream"
 
