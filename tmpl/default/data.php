@@ -2,4 +2,8 @@
 
 defined('_JEXEC') or die;
 
-return [];
+return [
+    'time' => date('H:i:s'),
+    'month' => date('m'),
+    'year' => date('Y')
+];

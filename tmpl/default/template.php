@@ -1,4 +1,10 @@
-<?php defined('_JEXEC') or die; ?>
+<?php
+
+defined('_JEXEC') or die;
+
+extract($displayData);
+
+?>
 
 <html lang="ru">
     <head>
@@ -36,6 +42,7 @@
     </style>
 
     <body>
-        <p>Hello world</p>
+        <p>Print_r variable</p>
+        <p><?= print_r($displayData); ?></p>
     </body>
 </html>
