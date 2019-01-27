@@ -35,7 +35,7 @@ class plgSystemJpdfgenerator extends CMSPlugin
         $action = 'stream';
         $template_name = 'default';
         $template_path_default = JPATH_ROOT . DS . implode(DS, ['plugins', 'system', 'jpdfgenerator', 'tmpl']);
-        $template_path_theme = JPATH_ROOT . DS . 'templates' . DS . $app->getTemplate() . implode(DS, ['html', 'plg_system_jpdfgenerator']);
+        $template_path_theme = JPATH_ROOT . DS . 'templates' . DS . $app->getTemplate() . DS . implode(DS, ['html', 'plg_system_jpdfgenerator']);
 
         //проверяем есть ли кастомный шаблон в запросе
         if(isset($request_data['template']))
