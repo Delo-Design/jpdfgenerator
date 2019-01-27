@@ -20,17 +20,17 @@ https://github.com/Delo-Design/jmpdf
 - template.php - это сам шаблон pdf, здесь вы можете писать html с css стилями ([Пример файла](https://github.com/Delo-Design/jpdfgenerator/blob/master/tmpl/default/template.php))
 
 ## Адрес для обращений
-/index.php?option=com_ajax&plugin=pdfrealty&group=system&format=raw
+/index.php?option=com_ajax&plugin=jpdgenerator&group=system&format=raw
 
 Где есть два параметра:
 - template - это какой шаблон использовать, по умолчанию "default"
 - action - это действие (download, stream), где download - запустит скачку pdf, а stream - вывод на экран. По умолчанию используется "stream"
 
 Пример адреса с этими параметрами
-/index.php?option=com_ajax&plugin=pdfrealty&group=system&format=raw&template=mycards&action=download
+/index.php?option=com_ajax&plugin=jpdgenerator&group=system&format=raw&template=mycards&action=download
 
 Так же вы можете любые свои GET параметры прописывать, их можно использовать в файле data.php для манипуляций, например, список ID материалов.
 
 Например:
 
-/index.php?option=com_ajax&plugin=pdfrealty&group=system&format=raw&template=mycards&action=download&ids=1,3,4,5,7,8,105
+/index.php?option=com_ajax&plugin=jpdgenerator&group=system&format=raw&template=mycards&action=download&ids=1,3,4,5,7,8,105
