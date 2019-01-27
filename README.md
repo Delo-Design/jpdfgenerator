@@ -16,7 +16,7 @@ https://github.com/Delo-Design/jmpdf
 <путь до joomla>/templates/<ваша тема>/html/plg_system_jpdgenerator/mycards
 
 В mycards надо создать файлы "data.php" и "template.php"
-- data.php - должен возврать массив, это переменные для шаблона "template.php" ([Пример файла](https://github.com/Delo-Design/jpdfgenerator/blob/master/tmpl/default/data.php))
+- data.php - должен возвращать массив, это переменные для шаблона "template.php" ([Пример файла](https://github.com/Delo-Design/jpdfgenerator/blob/master/tmpl/default/data.php))
 - template.php - это сам шаблон pdf, здесь вы можете писать html с css стилями ([Пример файла](https://github.com/Delo-Design/jpdfgenerator/blob/master/tmpl/default/template.php))
 
 ## Адрес для обращений
