@@ -18,20 +18,21 @@ use Joomla\Database\DatabaseDriver;
 class plgSystemJpdfgenerator extends CMSPlugin
 {
 
-	/**
-	 * Affects constructor behavior. If true, language files will be loaded automatically.
-	 *
-	 * @var    boolean
-	 * @since  1.0
-	 */
-	protected $autoloadLanguage = true;
+    /**
+     * Affects constructor behavior. If true, language files will be loaded automatically.
+     *
+     * @var    boolean
+     * @since  1.0
+     */
+    protected $autoloadLanguage = true;
 
 
-	public function onAjaxJpdfgenerator()
+    public function onAjaxJpdfgenerator()
     {
         $app = Factory::getApplication();
         $request_data = $app->input->getArray();
         $html = '';
+        $config = [];
         $action = 'stream';
         $template_name = 'default';
         $template_path_default = JPATH_ROOT . DIRECTORY_SEPARATOR . implode(DIRECTORY_SEPARATOR, ['plugins', 'system', 'jpdfgenerator', 'tmpl']);
@@ -53,11 +54,15 @@ class plgSystemJpdfgenerator extends CMSPlugin
         if(file_exists($template_path_theme . DIRECTORY_SEPARATOR . $template_name))
         {
             $template = new FileLayout('template', $template_path_theme . DIRECTORY_SEPARATOR . $template_name);
-
             if(!file_exists($template_path_theme . DIRECTORY_SEPARATOR . $template_name . DIRECTORY_SEPARATOR . 'data.php'))
             {
                 echo Text::_('PLG_JPDFGENERATOR_TEMPLATE_DATA_NOT_FOUND');
                 $app->close();
+            }
+
+            if(file_exists($template_path_theme . DIRECTORY_SEPARATOR . $template_name . DIRECTORY_SEPARATOR . 'config.php'))
+            {
+                $config = include $template_path_theme . DIRECTORY_SEPARATOR . $template_name . DIRECTORY_SEPARATOR . 'config.php';
             }
 
             $template_data = include $template_path_theme . DIRECTORY_SEPARATOR . $template_name . DIRECTORY_SEPARATOR . 'data.php';
@@ -77,6 +82,11 @@ class plgSystemJpdfgenerator extends CMSPlugin
                     $app->close();
                 }
 
+                if(file_exists($template_path_default . DIRECTORY_SEPARATOR . $template_name . DIRECTORY_SEPARATOR . 'data.php'))
+                {
+                    $config = include $template_path_theme . DIRECTORY_SEPARATOR . $template_name . DIRECTORY_SEPARATOR . 'config.php';
+                }
+
                 $template_data = include $template_path_default . DIRECTORY_SEPARATOR . $template_name . DIRECTORY_SEPARATOR . 'data.php';
                 $html = $template->render($template_data);
             }
@@ -90,7 +100,7 @@ class plgSystemJpdfgenerator extends CMSPlugin
         }
 
         JLoader::register('JMpdf', JPATH_LIBRARIES . '/mpdf/jmpdf.php');
-        $pdf = new JMpdf($html);
+        $pdf = new JMpdf($html, $config);
 
         if($action === 'stream')
         {
