@@ -34,8 +34,8 @@ class plgSystemJpdfgenerator extends CMSPlugin
         $html = '';
         $action = 'stream';
         $template_name = 'default';
-        $template_path_default = JPATH_ROOT . DS . implode(DS, ['plugins', 'system', 'jpdfgenerator', 'tmpl']);
-        $template_path_theme = JPATH_ROOT . DS . 'templates' . DS . $app->getTemplate() . DS . implode(DS, ['html', 'plg_system_jpdfgenerator']);
+        $template_path_default = JPATH_ROOT . DIRECTORY_SEPARATOR . implode(DIRECTORY_SEPARATOR, ['plugins', 'system', 'jpdfgenerator', 'tmpl']);
+        $template_path_theme = JPATH_ROOT . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . $app->getTemplate() . DIRECTORY_SEPARATOR . implode(DIRECTORY_SEPARATOR, ['html', 'plg_system_jpdfgenerator']);
 
         //проверяем есть ли кастомный шаблон в запросе
         if(isset($request_data['template']))
@@ -50,34 +50,34 @@ class plgSystemJpdfgenerator extends CMSPlugin
         }
 
         //проверяем если ли кастомный шаблон
-        if(file_exists($template_path_theme . DS . $template_name))
+        if(file_exists($template_path_theme . DIRECTORY_SEPARATOR . $template_name))
         {
-            $template = new FileLayout('template', $template_path_theme . DS . $template_name);
+            $template = new FileLayout('template', $template_path_theme . DIRECTORY_SEPARATOR . $template_name);
 
-            if(!file_exists($template_path_theme . DS . $template_name . DS . 'data.php'))
+            if(!file_exists($template_path_theme . DIRECTORY_SEPARATOR . $template_name . DIRECTORY_SEPARATOR . 'data.php'))
             {
                 echo Text::_('PLG_JPDFGENERATOR_TEMPLATE_DATA_NOT_FOUND');
                 $app->close();
             }
 
-            $template_data = include $template_path_theme . DS . $template_name . DS . 'data.php';
+            $template_data = include $template_path_theme . DIRECTORY_SEPARATOR . $template_name . DIRECTORY_SEPARATOR . 'data.php';
             $html = $template->render($template_data);
         }
         else
         {
 
             //провереяем есть ли стандартные шаблоны
-            if(file_exists($template_path_default . DS . $template_name))
+            if(file_exists($template_path_default . DIRECTORY_SEPARATOR . $template_name))
             {
-                $template = new FileLayout('template', $template_path_default . DS . $template_name);
+                $template = new FileLayout('template', $template_path_default . DIRECTORY_SEPARATOR . $template_name);
 
-                if(!file_exists($template_path_default . DS . $template_name . DS . 'data.php'))
+                if(!file_exists($template_path_default . DIRECTORY_SEPARATOR . $template_name . DIRECTORY_SEPARATOR . 'data.php'))
                 {
                     echo Text::_('PLG_JPDFGENERATOR_TEMPLATE_DATA_NOT_FOUND');
                     $app->close();
                 }
 
-                $template_data = include $template_path_default . DS . $template_name . DS . 'data.php';
+                $template_data = include $template_path_default . DIRECTORY_SEPARATOR . $template_name . DIRECTORY_SEPARATOR . 'data.php';
                 $html = $template->render($template_data);
             }
             else
