@@ -7,9 +7,9 @@
 	<authorUrl>https://delo-design.ru</authorUrl>
 	<copyright>A copyright</copyright>
 	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
-	<version>1.0</version>
+	<version>1.1</version>
 	<description>PLG_JPDFGENERATOR_XML_DESCRIPTION</description>
-
+	<namespace path="src">Joomla\Plugin\System\JPDFGenerator</namespace>
 	<languages folder="language">
 		<language tag="en-GB">en-GB/en-GB.plg_system_jpdfgenerator.ini</language>
 		<language tag="en-GB">en-GB/en-GB.plg_system_jpdfgenerator.sys.ini</language>
@@ -24,7 +24,8 @@
 	</updateservers>
 
 	<files>
-		<filename plugin="jpdfgenerator">jpdfgenerator.php</filename>
+		<folder plugin="jpdfgenerator">src</folder>
+		<folder>services</folder>
 		<folder>language</folder>
 		<folder>tmpl</folder>
 	</files>
