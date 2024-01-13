@@ -6,7 +6,7 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\FileLayout;
 use Joomla\CMS\Plugin\CMSPlugin;
-use Joomla\Libraries\JMpdf;
+use Joomla\Libraries\JMpdf\JMpdf;
 
 /**
  * Jpdfgenerator plugin.
